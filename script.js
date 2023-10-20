@@ -60,23 +60,29 @@ let users = [
     "address": "314 Dunne Place, Bawcomville, Guam, 9053"
     }
     ]
+    function FirstTask(){
+        let str1= ' ';
+        let NewBalance = users.filter(item => parseFloat(item.balance.replace('$', '').replace(',', '')) > 2000);
+        let Numbers = NewBalance.map(item => item.phone);
+        str1 = Numbers ;
+        res1.innerHTML= str1;        
+    }
+    btn1.onclick=FirstTask;
+
+
+    function SecondTask(){
+         const sum = users.reduce((total,item) =>{
+              return total + parseFloat(item.balance.replace('$', '').replace(',', ''))
+            },0)
+            console.log(sum)
+          
+            res2.innerHTML=sum;
+        }
+  
+   btn2.onclick=SecondTask;
+
+
+   
+
     
 
-function FirstTask(){
-    let sum = 0;
-    for(let i=0; i< users.length; i++){
-        sum += users[i].balance;
-    }
-    console.log(sum)
-    res1.innerHTML=sum;
-}
-btn1.onclick=FirstTask;
-
-
-// const newStudent= [];
-// // for ( let i =0;  i< student.length; i++){
-// //     if( student[i].age >= 18 ){
-// //      newStudent.push(student[i])
-// //     }
-// // }
-// // console.log(newStudent)
